@@ -1,20 +1,13 @@
 import { Arrival } from "./arrival";
+import { ArrivalGetterService } from "./arrival-getter.service";
 
 export class BusStop {
 
-    name:string;
+    constructor(public id:string,private name:string,private direction:string,private towards:string) {
+    }
 
-    arrivals: Arrival[];
-
-    constructor(name:string) {
-        this.name = name;
-
-        this.arrivals = [
-            new Arrival("X1", "Pothmadog", 4),
-            new Arrival("35", "Dolgellau", 7),
-            new Arrival("B4", "Llandudno", 9),
-            new Arrival("01", "Blaenau Ffestiniog", 14),
-        ]
+    toString():string {
+        return this.id + ", " + this.name + ", " + this.direction + ", " + this.towards; 
     }
 
 }

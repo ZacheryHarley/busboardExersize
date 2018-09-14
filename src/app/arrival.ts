@@ -1,13 +1,6 @@
 export class Arrival {
 
-    bus:string;
-    towards:string;
-    arrival:number;
-
-    constructor(bus:string, towards:string, arrival:number) {
-        this.bus = bus;
-        this.towards = towards;
-        this.arrival = arrival;
+    constructor(private id:string, private vid:string, private bus:string, private towards:string, private arrival:number) {
     }
 
     toString():string {

@@ -14,14 +14,14 @@ export class StopListComponent implements OnInit {
 
   busStops:BusStop[];
   selectedStop:BusStop;
-  
+  postCode:String;
 
   constructor(private stopsService: StopGetterService) { 
   }
 
   ngOnInit() {
     console.log(this.stopsService);
-    this.busStops = this.stopsService.getStops();
+    this.stopsService.getStops().subscribe(stops => this.busStops = stops);
   }
 
   onClick(stop:BusStop){

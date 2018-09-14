@@ -1,8 +1,5 @@
 <h1>Busboard</h1>
+<input type="text" [(ngModel)]="postcode">
 <ol>
-  <div *ngFor="let stop of busStops" (click)="onClick(stop)">{{stop.name}}<br /></div>
-</ol>
-
-<ol *ngIf="selectedStop !== undefined">
-  <app-bus-stop [busStop]="selectedStop"></app-bus-stop>
+  <a *ngFor="let stop of busStops" routerLink="/stop/{{stop.id}}">{{stop.name}}<br /></a>
 </ol>

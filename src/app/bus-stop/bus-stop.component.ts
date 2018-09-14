@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Arrival } from '../arrival';
 import { BusStop } from '../bus-stop';
+import { ArrivalGetterService } from '../arrival-getter.service';
+import { ActivatedRoute } from '@angular/router';
+import { StopGetterService } from '../stop-getter.service';
 
 @Component({
   selector: 'app-bus-stop',
@@ -9,13 +12,25 @@ import { BusStop } from '../bus-stop';
 })
 export class BusStopComponent implements OnInit {
 
-  @Input() busStop:BusStop;
+  busStop:BusStop;
+  arrivals:Arrival[];
 
-  constructor() { 
-    
+  constructor(private stopsService: StopGetterService, private activatedRoute:ActivatedRoute) { 
+  }
+
+
+  getStop(id:string){
+    this.stopsService.getStops().subscribe(busStops => busStops.forEach(stop => {
+      if(stop.id == id) {
+        this.busStop = stop;
+        this.stopsService.getArrivals(this.busStop).subscribe(arrs => this.arrivals = arrs);
+      }
+    }));
   }
 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.getStop(id);
   }
 
 }

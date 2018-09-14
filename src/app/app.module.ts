@@ -5,7 +5,9 @@ import { AppComponent } from './app.component';
 import { BusStopComponent } from './bus-stop/bus-stop.component';
 import { StopListComponent } from './stop-list/stop-list.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: '', redirectTo: '/stops', pathMatch: 'full'},
@@ -22,10 +24,13 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 
 
