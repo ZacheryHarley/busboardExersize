@@ -1,3 +1,4 @@
-<p>
-  bus-stop works!
-</p>
+<h2>Arrivals for {{busStop.name}}</h2>
+<ol>
+  <li *ngFor="let stop of busStop.arrivals">{{stop.toString()}}</li>
+</ol>

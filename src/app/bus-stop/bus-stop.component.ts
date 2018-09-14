@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Arrival } from '../arrival';
+import { BusStop } from '../bus-stop';
 
 @Component({
   selector: 'app-bus-stop',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusStopComponent implements OnInit {
 
-  constructor() { }
+  busStop:BusStop = new BusStop("Manod");
+
+  constructor() { 
+    
+  }
 
   ngOnInit() {
   }
