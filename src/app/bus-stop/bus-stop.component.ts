@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Arrival } from '../arrival';
 import { BusStop } from '../bus-stop';
 
@@ -9,7 +9,7 @@ import { BusStop } from '../bus-stop';
 })
 export class BusStopComponent implements OnInit {
 
-  busStop:BusStop = new BusStop("Manod");
+  @Input() busStop:BusStop;
 
   constructor() { 
     

@@ -1,0 +1,6 @@
+<h1>Busboard</h1>
+<ol>
+  <div *ngFor="let stop of busStops" (click)="onClick(stop)">{{stop.name}}<br /></div>
+</ol>
+
+<app-bus-stop [busStop]="selectedStop"></app-bus-stop>
